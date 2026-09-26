@@ -7,11 +7,13 @@
  */
 import { Routes, Route } from 'react-router';
 import Index from '@/pages/Index';
+import About from '@/pages/About';
 
 export default function App() {
 	return (
 		<Routes>
 			<Route path="/" element={<Index />} />
+			<Route path="/about" element={<About />} />
 		</Routes>
 	);
 }
