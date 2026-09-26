@@ -6,14 +6,18 @@
  * - Import from 'react-router' — NOT 'react-router-dom' (does not exist).
  */
 import { Routes, Route } from 'react-router';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import Index from '@/pages/Index';
 import About from '@/pages/About';
 
 export default function App() {
 	return (
-		<Routes>
-			<Route path="/" element={<Index />} />
-			<Route path="/about" element={<About />} />
-		</Routes>
+		<>
+			<ScrollToTop />
+			<Routes>
+				<Route path="/" element={<Index />} />
+				<Route path="/about" element={<About />} />
+			</Routes>
+		</>
 	);
 }

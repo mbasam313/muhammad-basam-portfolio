@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { FileText } from 'lucide-react';
 
 interface ProtectedPDFProps {
@@ -13,47 +13,9 @@ interface ProtectedPDFProps {
  * - Renders PDF in a protected container
  * - Disables right-click
  * - Prevents easy download
- * - Uses blob URL to obscure direct path
  */
 export function ProtectedPDF({ src, title, className = '', maxHeight = '40vh' }: ProtectedPDFProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const blobUrlRef = useRef<string | null>(null);
-  const [blobUrl, setBlobUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  // Fetch PDF and create blob URL to obscure direct path
-  useEffect(() => {
-    let mounted = true;
-
-    const fetchPDF = async () => {
-      try {
-        const response = await fetch(src);
-        if (!response.ok) throw new Error('Failed to load PDF');
-        const blob = await response.blob();
-        if (mounted) {
-          const url = URL.createObjectURL(blob);
-          blobUrlRef.current = url;
-          setBlobUrl(url);
-          setLoading(false);
-        }
-      } catch (err) {
-        if (mounted) {
-          setError(true);
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchPDF();
-
-    return () => {
-      mounted = false;
-      if (blobUrlRef.current) {
-        URL.revokeObjectURL(blobUrlRef.current);
-      }
-    };
-  }, [src]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -71,17 +33,6 @@ export function ProtectedPDF({ src, title, className = '', maxHeight = '40vh' }:
     };
   }, []);
 
-  if (error) {
-    return (
-      <div data-ev-id="ev_c0953c33af" className={`flex items-center justify-center bg-[#1a1f26] ${className}`} style={{ height: maxHeight }}>
-				<div data-ev-id="ev_a9e4a119fe" className="flex flex-col items-center gap-3 text-center">
-					<FileText size={32} className="text-white/30" />
-					<p data-ev-id="ev_cac8af873b" className="font-sans text-[14px] text-white/50">Unable to load PDF</p>
-				</div>
-			</div>);
-
-  }
-
   return (
     <div data-ev-id="ev_23000eae44"
     ref={containerRef}
@@ -89,28 +40,17 @@ export function ProtectedPDF({ src, title, className = '', maxHeight = '40vh' }:
     style={{ height: maxHeight, userSelect: 'none' }}
     onContextMenu={(e) => e.preventDefault()}>
 
-			{loading ?
-      <div data-ev-id="ev_ea3975e6cd" className="flex h-full w-full items-center justify-center bg-[#0f1419]">
-					<div data-ev-id="ev_b3b502155b" className="flex flex-col items-center gap-3">
-						<div data-ev-id="ev_acdd52928c" className="h-8 w-8 animate-spin rounded-full border-2 border-[#0c78e4] border-t-transparent" />
-						<p data-ev-id="ev_b54004a0f2" className="font-sans text-[13px] text-white/50">Loading PDF...</p>
-					</div>
-				</div> :
-
-      <>
-					<iframe data-ev-id="ev_83c926dbb6"
-        src={`${blobUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+			<iframe data-ev-id="ev_83c926dbb6"
+        src={`${src}#toolbar=0&navpanes=0&scrollbar=0`}
         title={title}
         className="h-full w-full border-0"
         style={{ pointerEvents: 'auto' }} />
 
-					{/* Overlay to prevent right-click on iframe content */}
-					<div data-ev-id="ev_8ad85d7b8f"
+			{/* Overlay to prevent right-click on iframe content */}
+			<div data-ev-id="ev_8ad85d7b8f"
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-10" />
 
-				</>
-      }
 		</div>);
 
 }
