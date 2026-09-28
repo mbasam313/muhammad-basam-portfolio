@@ -9,6 +9,12 @@ import { Routes, Route } from 'react-router';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import Index from '@/pages/Index';
 import About from '@/pages/About';
+import Services from '@/pages/Services';
+import WebsiteDesign from '@/pages/services/WebsiteDesign';
+import GraphicDesign from '@/pages/services/GraphicDesign';
+import MetaAds from '@/pages/services/MetaAds';
+import Ecommerce from '@/pages/services/Ecommerce';
+import LandingPages from '@/pages/services/LandingPages';
 
 export default function App() {
 	return (
@@ -17,6 +23,12 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Index />} />
 				<Route path="/about" element={<About />} />
+				<Route path="/services" element={<Services />} />
+				<Route path="/services/website-design" element={<WebsiteDesign />} />
+				<Route path="/services/graphic-design" element={<GraphicDesign />} />
+				<Route path="/services/meta-ads" element={<MetaAds />} />
+				<Route path="/services/ecommerce" element={<Ecommerce />} />
+				<Route path="/services/landing-pages" element={<LandingPages />} />
 			</Routes>
 		</>
 	);

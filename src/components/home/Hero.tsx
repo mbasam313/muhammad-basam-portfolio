@@ -97,7 +97,7 @@ export function Hero() {
 				</Container>
 
 				{/* Portrait with Icons on Sides - Stuck to Bottom */}
-				<div data-ev-id="ev_febebb72d5" className="relative z-20 mt-auto">
+				<div data-ev-id="ev_febebb72d5" className="relative z-20 mt-auto pb-8 sm:pb-10 lg:pb-12">
 					<div data-ev-id="ev_e95a3ebd74" className="reveal reveal-in flex items-end justify-center">
 						{/* Left Icons */}
 						<IconColumn icons={LEFT_ICONS} side="left" />

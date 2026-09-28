@@ -24,56 +24,64 @@ export const PROFILE = {
 export interface Service {
 	id: string;
 	title: string;
+	eyebrow: string;
 	summary: string;
+	intro: string;
 	items: string[];
+	process: string[];
 	href: string;
 }
 
 export const SERVICES: Service[] = [
 	{
 		id: 'website-design',
-		title: 'Website Design',
-		summary:
-			'Responsive WordPress and WooCommerce websites built around clear structure, usability and the goals of the business behind them.',
-		items: [
-			'WordPress websites',
-			'WooCommerce stores',
-			'Business & portfolio sites',
-			'Landing pages',
-			'Website redesigns',
-			'Basic performance optimisation',
-		],
+		title: 'WordPress Website Design',
+		eyebrow: 'Web Design',
+		summary: 'Responsive WordPress and business websites built around clear structure, usability and the goals behind the project.',
+		intro: 'A website should make a business easier to understand, trust and choose. I design WordPress websites with a clear flow, strong hierarchy and a polished experience on every screen.',
+		items: ['WordPress websites', 'Business & portfolio sites', 'Website redesigns', 'Responsive layouts', 'Content management', 'Basic performance optimisation'],
+		process: ['Understand the business and audience', 'Plan pages, content and user flow', 'Design a clear visual system', 'Build and refine across screen sizes'],
 		href: '/services/website-design',
 	},
 	{
 		id: 'graphic-design',
 		title: 'Graphic Design',
-		summary:
-			'Digital graphics for brands and campaigns — designed to communicate quickly, with readable typography and consistent branding.',
-		items: [
-			'Social media posts',
-			'Meta ad creatives',
-			'Promotional graphics',
-			'Marketing materials',
-			'Digital reports',
-			'Branding materials',
-		],
+		eyebrow: 'Visual Design',
+		summary: 'Digital graphics for brands and campaigns — designed to communicate quickly, with readable typography and consistent branding.',
+		intro: 'Good graphic design gives a business a recognisable voice. I create focused visual content that supports the message, fits the brand and works in the places people actually see it.',
+		items: ['Social media posts', 'Meta ad creatives', 'Promotional graphics', 'Marketing materials', 'Digital reports', 'Branding materials'],
+		process: ['Clarify the message and audience', 'Establish layout, type and visual direction', 'Create a consistent set of visuals', 'Review and prepare final assets'],
 		href: '/services/graphic-design',
 	},
 	{
 		id: 'meta-ads',
 		title: 'Meta Ads Management',
-		summary:
-			'Paid social campaigns where the creative and the targeting are planned together, then monitored and adjusted against real performance.',
-		items: [
-			'Facebook & Instagram Ads',
-			'Google Ads',
-			'Campaign planning',
-			'Ad creative strategy',
-			'Audience research',
-			'Performance analysis',
-		],
+		eyebrow: 'Digital Marketing',
+		summary: 'Paid social campaigns where the creative and the targeting are planned together, then monitored and adjusted against real performance.',
+		intro: 'Advertising works better when the message, creative and audience are considered together. I help plan and manage Meta campaigns with practical creative direction and ongoing performance review.',
+		items: ['Facebook & Instagram Ads', 'Campaign planning', 'Ad creative strategy', 'Audience research', 'Performance analysis', 'Digital reporting'],
+		process: ['Set the campaign objective', 'Research audiences and messages', 'Prepare creative and campaign structure', 'Monitor, learn and optimise'],
 		href: '/services/meta-ads',
+	},
+	{
+		id: 'ecommerce',
+		title: 'E-commerce & WooCommerce',
+		eyebrow: 'Online Stores',
+		summary: 'WooCommerce stores with clean product presentation, simple browsing and a shopping experience built around the customer.',
+		intro: 'An online store needs to help people find the right product and feel confident completing a purchase. I design WooCommerce experiences that keep products, categories and next steps easy to understand.',
+		items: ['WooCommerce stores', 'Product and category pages', 'Store structure', 'Responsive shopping flows', 'Product content management', 'Store redesigns'],
+		process: ['Organise products and categories', 'Plan the shopping journey', 'Design product-focused pages', 'Build, test and refine the store'],
+		href: '/services/ecommerce',
+	},
+	{
+		id: 'landing-pages',
+		title: 'Landing Page Design',
+		eyebrow: 'Conversion Design',
+		summary: 'Focused landing pages for campaigns, services and products — built around one clear message and one next step.',
+		intro: 'A landing page has one job: make the next step obvious. I design campaign pages with clear messaging, purposeful sections and a visual path that supports the goal.',
+		items: ['Lead generation pages', 'Product promotion pages', 'Service campaigns', 'Ad destination pages', 'Clear calls to action', 'Mobile-first layouts'],
+		process: ['Define the page goal', 'Shape the message and offer', 'Design the visual path', 'Review the experience on every device'],
+		href: '/services/landing-pages',
 	},
 ];
 
@@ -293,14 +301,44 @@ export const PROCESS_STEPS: ProcessStep[] = [
 	},
 ];
 
+// --- Stats ---
+
+export interface Stat {
+	value: string;
+	label: string;
+}
+
+export const STATS: Stat[] = [
+	{ value: '10+', label: 'Websites Designed' },
+	{ value: '100+', label: 'Graphic Design Projects' },
+	{ value: '$50K+', label: 'Ad Spend Managed' },
+	{ value: '15+', label: 'Happy Clients' },
+];
+
+// --- Homepage Feature Section ---
+
+export interface FeatureItem {
+	icon: string;
+	text: string;
+}
+
+export const HOMEPAGE_FEATURES: FeatureItem[] = [
+	{ icon: 'Globe', text: 'Websites that communicate clearly and work on every device' },
+	{ icon: 'Palette', text: 'Visual identity and graphics that fit the brand and the audience' },
+	{ icon: 'Megaphone', text: 'Meta and Google campaigns planned around real business goals' },
+	{ icon: 'ShoppingCart', text: 'WooCommerce stores with simple browsing and confident checkout' },
+	{ icon: 'Layout', text: 'Landing pages built around one message and one clear next step' },
+	{ icon: 'Search', text: 'Basic SEO and content structure that helps people find the site' },
+];
+
 // --- Footer ---
 
 export const FOOTER_SERVICES: NavLink[] = [
 	{ label: 'WordPress Website Design', href: '/services/website-design' },
 	{ label: 'Graphic Design', href: '/services/graphic-design' },
 	{ label: 'Meta Ads Management', href: '/services/meta-ads' },
-	{ label: 'E-commerce & WooCommerce', href: '/services/website-design' },
-	{ label: 'Landing Page Design', href: '/services/website-design' },
+	{ label: 'E-commerce & WooCommerce', href: '/services/ecommerce' },
+	{ label: 'Landing Page Design', href: '/services/landing-pages' },
 ];
 
 export const FOOTER_PRODUCTS: NavLink[] = [
