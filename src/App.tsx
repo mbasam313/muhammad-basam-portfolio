@@ -15,6 +15,8 @@ import GraphicDesign from '@/pages/services/GraphicDesign';
 import MetaAds from '@/pages/services/MetaAds';
 import Ecommerce from '@/pages/services/Ecommerce';
 import LandingPages from '@/pages/services/LandingPages';
+import Pricing from '@/pages/Pricing';
+import Contact from '@/pages/Contact';
 
 export default function App() {
 	return (
@@ -29,6 +31,8 @@ export default function App() {
 				<Route path="/services/meta-ads" element={<MetaAds />} />
 				<Route path="/services/ecommerce" element={<Ecommerce />} />
 				<Route path="/services/landing-pages" element={<LandingPages />} />
+				<Route path="/pricing" element={<Pricing />} />
+				<Route path="/contact" element={<Contact />} />
 			</Routes>
 		</>
 	);

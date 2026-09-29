@@ -116,7 +116,7 @@ export function ServiceDetail({ serviceId, children }: ServiceDetailProps) {
         </Section>
 
         {/* Description */}
-        <Section tone="canvas" labelledBy="description-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="description-heading">
           <Container>
             <Reveal>
               <p className="max-w-[68ch] font-sans text-[15px] leading-[1.75] tracking-[-0.011em] text-deep-gray text-pretty sm:text-[16px] lg:text-[17px]">
@@ -127,7 +127,7 @@ export function ServiceDetail({ serviceId, children }: ServiceDetailProps) {
         </Section>
 
         {/* What's Included */}
-        <Section tone="canvas" labelledBy="included-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="included-heading">
           <Container>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
               <Reveal>

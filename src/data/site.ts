@@ -447,6 +447,236 @@ export const HOMEPAGE_FEATURES: FeatureItem[] = [
 	{ icon: 'Search', text: 'Basic SEO and content structure that helps people find the site' },
 ];
 
+// --- Pricing ---
+
+export interface PricingPlan {
+  id: string;
+  name: string;
+  category: 'per-project' | 'monthly';
+  serviceName: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  popular?: boolean;
+}
+
+export const PRICING_PLANS: PricingPlan[] = [
+  // Website Design — Per Project
+  {
+    id: 'web-starter',
+    name: 'Starter Website',
+    category: 'per-project',
+    serviceName: 'WordPress Website Design',
+    price: '$199',
+    period: 'per project',
+    description: 'A clean, responsive WordPress website for small businesses getting started online.',
+    features: ['Up to 5 pages', 'Responsive design', 'Basic SEO setup', 'Contact form', '1 round of revisions', '7-day delivery'],
+  },
+  {
+    id: 'web-business',
+    name: 'Business Website',
+    category: 'per-project',
+    serviceName: 'WordPress Website Design',
+    price: '$399',
+    period: 'per project',
+    description: 'A complete WordPress website with more pages, content structure and polish.',
+    features: ['Up to 12 pages', 'Responsive design', 'SEO structure', 'Blog setup', 'Social media integration', '2 rounds of revisions', '10-day delivery'],
+    popular: true,
+  },
+  {
+    id: 'web-premium',
+    name: 'Premium Website',
+    category: 'per-project',
+    serviceName: 'WordPress Website Design',
+    price: '$699',
+    period: 'per project',
+    description: 'A full custom WordPress build with advanced structure and performance focus.',
+    features: ['Unlimited pages', 'Custom design system', 'Advanced SEO structure', 'Performance optimisation', 'Analytics setup', '3 rounds of revisions', '15-day delivery'],
+  },
+
+  // Graphic Design — Per Project
+  {
+    id: 'design-starter',
+    name: 'Starter Graphics',
+    category: 'per-project',
+    serviceName: 'Graphic Design',
+    price: '$49',
+    period: 'per project',
+    description: 'A set of social media graphics for a single campaign or brand update.',
+    features: ['5 social media posts', '1 platform size', 'Basic brand matching', '1 round of revisions', '3-day delivery'],
+  },
+  {
+    id: 'design-standard',
+    name: 'Standard Graphics',
+    category: 'per-project',
+    serviceName: 'Graphic Design',
+    price: '$99',
+    period: 'per project',
+    description: 'A full set of graphics for social media, ads and marketing materials.',
+    features: ['12 social media posts', '2 platform sizes', 'Ad creative design', 'Brand-consistent visuals', '2 rounds of revisions', '5-day delivery'],
+    popular: true,
+  },
+  {
+    id: 'design-brand',
+    name: 'Brand Identity Pack',
+    category: 'per-project',
+    serviceName: 'Graphic Design',
+    price: '$199',
+    period: 'per project',
+    description: 'A complete visual identity system including logo, colours and brand materials.',
+    features: ['Logo design', 'Colour & typography system', '12 social media templates', 'Business card design', 'Brand guidelines document', '3 rounds of revisions', '10-day delivery'],
+  },
+
+  // Meta Ads — Monthly
+  {
+    id: 'ads-starter',
+    name: 'Starter Ads',
+    category: 'monthly',
+    serviceName: 'Meta Ads Management',
+    price: '$149',
+    period: 'per month',
+    description: 'Meta Ads management for small budgets — campaign setup, monitoring and reporting.',
+    features: ['Up to $500 ad spend', '1 campaign', 'Ad creative design', 'Weekly monitoring', 'Monthly performance report', 'Facebook & Instagram'],
+  },
+  {
+    id: 'ads-growth',
+    name: 'Growth Ads',
+    category: 'monthly',
+    serviceName: 'Meta Ads Management',
+    price: '$299',
+    period: 'per month',
+    description: 'Full Meta Ads management with multiple campaigns and creative testing.',
+    features: ['Up to $2,000 ad spend', 'Up to 3 campaigns', 'Ad creative design & testing', 'Audience research', 'Bi-weekly optimisation', 'Monthly performance report', 'Facebook & Instagram'],
+    popular: true,
+  },
+  {
+    id: 'ads-pro',
+    name: 'Pro Ads',
+    category: 'monthly',
+    serviceName: 'Meta Ads Management',
+    price: '$499',
+    period: 'per month',
+    description: 'Advanced Meta and Google Ads management for larger budgets and full-funnel campaigns.',
+    features: ['Up to $5,000 ad spend', 'Unlimited campaigns', 'Full creative production', 'Google Ads management', 'Weekly optimisation', 'Detailed monthly report', 'Facebook, Instagram & Google'],
+  },
+
+  // Social Media Management — Monthly
+  {
+    id: 'smm-starter',
+    name: 'Starter Social',
+    category: 'monthly',
+    serviceName: 'Social Media Management',
+    price: '$99',
+    period: 'per month',
+    description: 'Basic social media management with post design and scheduling.',
+    features: ['8 posts per month', '1 platform', 'Post design', 'Caption writing', 'Monthly scheduling', 'Basic engagement'],
+  },
+  {
+    id: 'smm-growth',
+    name: 'Growth Social',
+    category: 'monthly',
+    serviceName: 'Social Media Management',
+    price: '$199',
+    period: 'per month',
+    description: 'Full social media management with content planning and multi-platform posting.',
+    features: ['16 posts per month', '2 platforms', 'Content calendar', 'Post design & captions', 'Hashtag research', 'Weekly scheduling', 'Performance tracking'],
+    popular: true,
+  },
+  {
+    id: 'smm-pro',
+    name: 'Pro Social',
+    category: 'monthly',
+    serviceName: 'Social Media Management',
+    price: '$349',
+    period: 'per month',
+    description: 'Complete social media management with strategy, creative and reporting.',
+    features: ['24 posts per month', '3 platforms', 'Content strategy', 'Full creative production', 'Community management', 'Monthly report', 'Campaign support'],
+  },
+
+  // Landing Page — Per Project
+  {
+    id: 'lp-starter',
+    name: 'Starter Landing Page',
+    category: 'per-project',
+    serviceName: 'Landing Page Design',
+    price: '$149',
+    period: 'per project',
+    description: 'A focused single-page landing page for a campaign or product.',
+    features: ['1 landing page', 'Mobile-first design', '1 call to action', 'Contact form', '1 round of revisions', '5-day delivery'],
+  },
+  {
+    id: 'lp-standard',
+    name: 'Standard Landing Page',
+    category: 'per-project',
+    serviceName: 'Landing Page Design',
+    price: '$249',
+    period: 'per project',
+    description: 'A conversion-focused landing page with multiple sections and form design.',
+    features: ['1 landing page', 'Multi-section layout', 'Form design', 'A/B-ready structure', '2 rounds of revisions', '5-day delivery'],
+    popular: true,
+  },
+  {
+    id: 'lp-premium',
+    name: 'Premium Landing Page',
+    category: 'per-project',
+    serviceName: 'Landing Page Design',
+    price: '$399',
+    period: 'per project',
+    description: 'A full custom landing page with advanced sections, animations and tracking.',
+    features: ['1 landing page', 'Custom design system', 'Advanced sections', 'Analytics & tracking setup', '3 rounds of revisions', '7-day delivery'],
+  },
+
+  // WooCommerce — Per Project
+  {
+    id: 'woo-starter',
+    name: 'Starter Store',
+    category: 'per-project',
+    serviceName: 'E-commerce & WooCommerce',
+    price: '$399',
+    period: 'per project',
+    description: 'A WooCommerce store with basic product setup and checkout.',
+    features: ['Up to 20 products', 'WooCommerce setup', '1 payment gateway', 'Responsive design', 'Basic SEO', '10-day delivery'],
+  },
+  {
+    id: 'woo-business',
+    name: 'Business Store',
+    category: 'per-project',
+    serviceName: 'E-commerce & WooCommerce',
+    price: '$599',
+    period: 'per project',
+    description: 'A complete WooCommerce store with categories, product pages and checkout optimisation.',
+    features: ['Up to 50 products', 'Category structure', '2 payment gateways', 'Checkout optimisation', 'Product page design', '2 rounds of revisions', '15-day delivery'],
+    popular: true,
+  },
+  {
+    id: 'woo-premium',
+    name: 'Premium Store',
+    category: 'per-project',
+    serviceName: 'E-commerce & WooCommerce',
+    price: '$899',
+    period: 'per project',
+    description: 'A full custom WooCommerce build with advanced product browsing and performance focus.',
+    features: ['Unlimited products', 'Custom store design', 'Advanced product filtering', 'Multiple payment gateways', 'Performance optimisation', '3 rounds of revisions', '20-day delivery'],
+  },
+];
+
+// --- Contact Info ---
+
+export const CONTACT_INFO = {
+  whatsapp: '+923169526957',
+  whatsappDisplay: '+92 316-9526957',
+  email: 'hello@muhammadbasam.com',
+  location: 'Peshawar, Khyber Pakhtunkhwa, Pakistan',
+};
+
+export const SOCIAL_LINKS = [
+  { label: 'Facebook', href: 'https://facebook.com', icon: 'facebook' },
+  { label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
+  { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
+  { label: 'WhatsApp', href: 'https://wa.me/923169526957', icon: 'whatsapp' },
+];
+
 // --- Footer ---
 
 export const FOOTER_SERVICES: NavLink[] = [

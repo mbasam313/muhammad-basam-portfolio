@@ -12,16 +12,17 @@ export function Stats() {
         <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {STATS.map((stat, index) => (
             <Reveal key={stat.label} delay={index * 60} className="flex flex-col items-center text-center">
-              <span className="font-heading text-[28px] font-bold leading-[1.1] tracking-[-0.02em] text-paper sm:text-[36px] lg:text-[42px] xl:text-[48px]">
+              <span className="font-heading text-[28px] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[36px] lg:text-[42px] xl:text-[48px]">
                 {stat.value}
               </span>
-              <span className="mt-1.5 font-heading text-[11px] font-medium uppercase tracking-[0.12em] text-paper/55 sm:text-[12px] sm:tracking-[0.14em] lg:text-[13px]">
+              <span className="mt-1.5 font-heading text-[11px] font-medium uppercase tracking-[0.12em] text-white/60 sm:text-[12px] sm:tracking-[0.14em] lg:text-[13px]">
                 {stat.label}
               </span>
             </Reveal>
           ))}
         </div>
       </Container>
+      <div className="mx-auto mt-8 h-px w-full max-w-[1200px] bg-white/10 sm:px-6 lg:px-10" />
     </Section>
   );
 }

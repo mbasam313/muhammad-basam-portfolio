@@ -1,5 +1,4 @@
-import { Check, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router';
+import { Check } from 'lucide-react';
 import { Container, Section, SectionHeading } from '@/components/ui/Section';
 import { ArrowLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
@@ -11,11 +10,17 @@ export function Services() {
   return (
     <Section id="services" tone="canvas" labelledBy="services-heading">
       <Container>
-        <SectionHeading
-          eyebrow="Services"
-          id="services-heading"
-          title="Five things I do, and they work better together."
-          description="Most projects need a site, the visuals that fill it and the campaigns that bring people to it. I work across all of it." />
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <SectionHeading
+            eyebrow="Services"
+            id="services-heading"
+            title="Five things I do, and they work better together."
+            description="Most projects need a site, the visuals that fill it and the campaigns that bring people to it. I work across all of it." />
+
+          <ArrowLink to="/services" className="shrink-0">
+            View all services
+          </ArrowLink>
+        </div>
 
         <ul className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {homepageServices.map((service, index) =>
@@ -49,16 +54,6 @@ export function Services() {
             </Reveal>
           )}
         </ul>
-
-        <div className="mt-10 flex justify-center sm:mt-12">
-          <Link
-            to="/services"
-            className="group inline-flex items-center gap-2 rounded-[14px] bg-paper px-5 py-3 font-heading text-[14px] font-medium text-ink ring-1 ring-hairline/60 transition-all duration-300 hover:ring-hairline hover:shadow-md sm:px-6 sm:py-3.5 sm:text-[15px] lg:text-[16px]"
-          >
-            View all services
-            <ArrowRight size={16} className="text-electric-blue transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
-          </Link>
-        </div>
       </Container>
     </Section>
   );

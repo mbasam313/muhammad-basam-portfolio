@@ -57,7 +57,7 @@ export function FeatureSection() {
   const totalWords = HEADLINE_WORDS.length;
 
   return (
-    <Section tone="ink" labelledBy="feature-heading" className="!py-16 sm:!py-20 lg:!py-28">
+    <Section tone="ink" labelledBy="feature-heading" className="!py-16 sm:!py-20 lg:!py-28 !pt-0">
       <Container>
         <div ref={sectionRef} className="flex flex-col items-center gap-12 lg:gap-16">
           <Reveal className="max-w-[60ch] text-center">
@@ -67,7 +67,7 @@ export function FeatureSection() {
             >
               {HEADLINE_WORDS.map((word, i) => {
                 const wordProgress = Math.max(0, Math.min(1, (scrollProgress * totalWords - i) / 1));
-                const color = lerpColor('#777777', '#0c78e4', wordProgress);
+                const color = lerpColor('#555555', '#0c78e4', wordProgress);
                 return (
                   <span
                     key={i}
