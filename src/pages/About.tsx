@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { Seo } from '@/components/Seo';
 import { Container, Section, SectionHeading } from '@/components/ui/Section';
 import { ButtonLink, ArrowLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
@@ -554,6 +555,35 @@ function ProductsSection() {
 export default function About() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-paper font-sans antialiased">
+      <Seo
+        title="About Muhammad Basam — Designer, Developer & Marketer"
+        description="Muhammad Basam is a website designer, graphic designer and digital marketing professional with 4+ years of experience. Based in Peshawar, Pakistan. Creative Head at Skyward Vision."
+        keywords={['about Muhammad Basam', 'website designer Pakistan', 'graphic designer Peshawar', 'digital marketer', 'WordPress designer', 'creative head', 'Skyward Vision']}
+        path="/about"
+        type="profile"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'Muhammad Basam',
+          jobTitle: 'Website Designer, Graphic Designer & Digital Marketing Professional',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Peshawar',
+            addressRegion: 'Khyber Pakhtunkhwa',
+            addressCountry: 'PK',
+          },
+          worksFor: { '@type': 'Organization', name: 'Skyward Vision' },
+          knowsAbout: [
+            'WordPress Website Design',
+            'WooCommerce',
+            'Graphic Design',
+            'Meta Ads',
+            'Google Ads',
+            'Social Media Management',
+            'Landing Page Design',
+          ],
+        }}
+      />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-pill focus:bg-ink focus:px-5 focus:py-2 focus:text-[14px] focus:text-paper"

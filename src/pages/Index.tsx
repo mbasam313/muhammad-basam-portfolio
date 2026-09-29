@@ -1,5 +1,6 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { Seo } from '@/components/Seo';
 import { Hero } from '@/components/home/Hero';
 import { Stats } from '@/components/home/Stats';
 import { FeatureSection } from '@/components/home/FeatureSection';
@@ -12,6 +13,36 @@ import { FinalCta } from '@/components/home/FinalCta';
 export default function Index() {
   return (
     <div data-ev-id="ev_9b666c18bf" className="flex min-h-screen flex-col overflow-x-hidden bg-paper font-sans antialiased">
+      <Seo
+        title="Website Designer, Graphic Designer & Digital Marketer"
+        description="Muhammad Basam is a website designer, graphic designer and digital marketing professional in Peshawar, Pakistan. WordPress, WooCommerce, graphic design and Meta Ads."
+        keywords={['website designer', 'graphic designer', 'digital marketer', 'WordPress designer', 'WooCommerce', 'Meta Ads', 'Pakistan', 'Peshawar']}
+        path="/"
+        type="website"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'Muhammad Basam',
+          jobTitle: 'Website Designer, Graphic Designer & Digital Marketing Professional',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Peshawar',
+            addressRegion: 'Khyber Pakhtunkhwa',
+            addressCountry: 'PK',
+          },
+          worksFor: { '@type': 'Organization', name: 'Skyward Vision' },
+          knowsAbout: [
+            'WordPress Website Design',
+            'WooCommerce',
+            'Graphic Design',
+            'Meta Ads',
+            'Google Ads',
+            'Social Media Management',
+            'Landing Page Design',
+            'Website Redesign',
+          ],
+        }}
+      />
       <a
         data-ev-id="ev_e0973bd59c"
         href="#main"

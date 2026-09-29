@@ -1,6 +1,7 @@
 import { Check, ArrowRight } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { Seo } from '@/components/Seo';
 import { Container, Section, SectionHeading } from '@/components/ui/Section';
 import { ButtonLink, ArrowLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
@@ -10,6 +11,28 @@ import { SERVICES } from '@/data/site';
 export default function Services() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-paper font-sans antialiased">
+      <Seo
+        title="Services — Website Design, Graphic Design & Digital Marketing"
+        description="WordPress website design, graphic design, Meta Ads management, WooCommerce stores and landing page design. Five services covering the full digital journey by Muhammad Basam."
+        keywords={['services', 'website design', 'graphic design', 'Meta Ads', 'WooCommerce', 'landing page design', 'digital marketing services', 'WordPress designer Pakistan']}
+        path="/services"
+        type="website"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ServiceCatalog',
+          provider: {
+            '@type': 'Person',
+            name: 'Muhammad Basam',
+            jobTitle: 'Website Designer, Graphic Designer & Digital Marketing Professional',
+          },
+          hasService: SERVICES.map((s) => ({
+            '@type': 'Service',
+            name: s.title,
+            description: s.summary,
+            url: s.href,
+          })),
+        }}
+      />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-pill focus:bg-ink focus:px-5 focus:py-2 focus:text-[14px] focus:text-paper"
