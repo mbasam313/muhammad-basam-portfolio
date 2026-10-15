@@ -266,18 +266,15 @@ function AboutHero() {
               </div>
             </Reveal>
           </div>
-          <Reveal delay={120} className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="absolute inset-0 -z-10 translate-x-3 translate-y-3 rounded-[20px] bg-canvas" />
-              <ProtectedImage
-                src={portrait}
-                alt={`${PROFILE.name}, website designer and digital marketing professional`}
-                width={400}
-                height={400}
-                loading="eager"
-                className="h-[240px] w-auto rounded-[16px] object-contain sm:h-[300px] lg:h-[360px] xl:h-[400px]"
-              />
-            </div>
+          <Reveal delay={120} className="flex items-end justify-center pt-0 lg:justify-end lg:pt-12">
+            <ProtectedImage
+              src={portrait}
+              alt={`${PROFILE.name}, website designer and digital marketing professional`}
+              width={400}
+              height={400}
+              loading="eager"
+              className="h-[240px] w-auto object-contain sm:h-[300px] lg:h-[360px] xl:h-[400px]"
+            />
           </Reveal>
         </div>
       </Container>

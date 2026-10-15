@@ -55,7 +55,6 @@ export function ProtectedImage({
     <div data-ev-id="ev_2e867c64a6"
     ref={containerRef}
     className="protected-media relative inline-block"
-    style={{ userSelect: 'none', WebkitUserSelect: 'none' }}>
 
 			<img data-ev-id="ev_23d2b63a38"
       src={src}
@@ -70,8 +69,6 @@ export function ProtectedImage({
       onDragStart={(e) => e.preventDefault()}
       style={{
         pointerEvents: 'none',
-        userSelect: 'none',
-        WebkitUserSelect: 'none',
         WebkitTouchCallout: 'none'
       }} />
 
@@ -98,40 +95,16 @@ interface ProtectedBgImageProps {
 }
 
 export function ProtectedBgImage({ src, alt, className = '', children }: ProtectedBgImageProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const preventActions = (e: Event) => {
-      e.preventDefault();
-      return false;
-    };
-
-    container.addEventListener('contextmenu', preventActions);
-    container.addEventListener('dragstart', preventActions);
-
-    return () => {
-      container.removeEventListener('contextmenu', preventActions);
-      container.removeEventListener('dragstart', preventActions);
-    };
-  }, []);
-
   return (
     <div data-ev-id="ev_0597bbf557"
-    ref={containerRef}
     role="img"
     aria-label={alt}
     className={`protected-media ${className}`}
     style={{
       backgroundImage: `url(${src})`,
       backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      userSelect: 'none',
-      WebkitUserSelect: 'none'
-    }}
-    onContextMenu={(e) => e.preventDefault()}>
+      backgroundPosition: 'center'
+    }}>
 
 			{children}
 		</div>);
