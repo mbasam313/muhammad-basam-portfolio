@@ -57,7 +57,7 @@ export function FeatureSection() {
   const totalWords = HEADLINE_WORDS.length;
 
   return (
-    <Section tone="ink" labelledBy="feature-heading" className="!py-16 sm:!py-20 lg:!py-28 !pt-0">
+    <Section tone="paper" labelledBy="feature-heading" className="!py-16 sm:!py-20 lg:!py-28">
       <Container>
         <div ref={sectionRef} className="flex flex-col items-center gap-12 lg:gap-16">
           <Reveal className="max-w-[60ch] text-center">
@@ -93,14 +93,14 @@ export function FeatureSection() {
                   key={feature.text}
                   className="flex items-start gap-3 rounded-[14px] p-4 transition-all duration-500 sm:p-5"
                   style={{
-                    backgroundColor: isActive ? 'rgba(12, 120, 228, 0.08)' : 'rgba(255, 255, 255, 0.03)',
-                    border: `1px solid ${isActive ? 'rgba(12, 120, 228, 0.2)' : 'rgba(255, 255, 255, 0.08)'}`,
+                    backgroundColor: isActive ? 'rgba(12, 120, 228, 0.08)' : 'rgba(119, 119, 119, 0.05)',
+                    border: `1px solid ${isActive ? 'rgba(12, 120, 228, 0.2)' : 'rgba(119, 119, 119, 0.12)'}`, 
                   }}
                 >
                   <span
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] transition-colors duration-500 sm:h-11 sm:w-11"
                     style={{
-                      backgroundColor: isActive ? 'rgba(12, 120, 228, 0.15)' : 'rgba(255, 255, 255, 0.06)',
+                      backgroundColor: isActive ? 'rgba(12, 120, 228, 0.15)' : 'rgba(119, 119, 119, 0.1)',
                     }}
                   >
                     <Icon
@@ -115,7 +115,7 @@ export function FeatureSection() {
                   <span
                     className="font-sans text-[14px] leading-[1.55] tracking-[-0.011em] transition-colors duration-500 sm:text-[15px] lg:text-[16px]"
                     style={{
-                      color: isActive ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0.45)',
+                      color: isActive ? '#1d1d1f' : '#777777',
                     }}
                   >
                     {feature.text}

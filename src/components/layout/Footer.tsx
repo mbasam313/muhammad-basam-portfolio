@@ -4,13 +4,13 @@ import { Logo } from '@/components/ui/Logo';
 import { NAV_LINKS, FOOTER_SERVICES, FOOTER_PRODUCTS, FOOTER_LEGAL, PROFILE } from '@/data/site';
 
 const LINK_CLASS =
-'inline-flex min-h-[44px] items-center font-heading text-[13px] leading-[1.6] tracking-[-0.011em] text-mid-gray transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue rounded-sm sm:min-h-0 sm:text-[14px]';
+'inline-flex min-h-[36px] items-center font-heading text-[13px] leading-[1.4] tracking-[-0.011em] text-mid-gray transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue rounded-sm sm:min-h-0 sm:text-[14px]';
 
 export function Footer() {
   return (
     <footer data-ev-id="ev_8da7c14ec0" className="bg-canvas text-ink safe-area-bottom">
 			<Container>
-				<div data-ev-id="ev_e1f6f24bc0" className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 sm:gap-12 sm:py-16 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:py-20">
+				<div data-ev-id="ev_e1f6f24bc0" className="grid grid-cols-1 gap-6 py-12 sm:grid-cols-2 sm:gap-12 sm:py-16 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:py-20">
 					{/* Column 1: Logo with Description */}
 					<div data-ev-id="ev_11847e8fac" className="flex flex-col gap-5">
 						<Logo className="h-8 w-auto max-w-fit" />
@@ -23,8 +23,8 @@ export function Footer() {
 					</div>
 
 					{/* Column 2: Navigation */}
-					<nav data-ev-id="ev_c0118593b0" aria-label="Footer Navigation" className="flex flex-col gap-3">
-						<h2 data-ev-id="ev_a4a47f93e4" className="font-heading text-[11px] font-medium uppercase tracking-[0.12em] text-deep-gray sm:text-[12px] sm:tracking-[0.14em] lg:text-[13px]">
+					<nav data-ev-id="ev_c0118593b0" aria-label="Footer Navigation" className="flex flex-col gap-1.5">
+						<h2 data-ev-id="ev_a4a47f93e4" className="w-fit border-b border-electric-blue/40 pb-1 font-heading text-[11px] font-semibold uppercase tracking-[0.12em] text-ink sm:text-[12px] sm:tracking-[0.14em] lg:text-[13px]">
 							Navigation
 						</h2>
 						{NAV_LINKS.map((link) =>
@@ -35,8 +35,8 @@ export function Footer() {
 					</nav>
 
 					{/* Column 3: Services */}
-					<nav data-ev-id="ev_984842ca1e" aria-label="Services" className="flex flex-col gap-3">
-						<h2 data-ev-id="ev_86cc1e6004" className="font-heading text-[11px] font-medium uppercase tracking-[0.12em] text-deep-gray sm:text-[12px] sm:tracking-[0.14em] lg:text-[13px]">
+					<nav data-ev-id="ev_984842ca1e" aria-label="Services" className="flex flex-col gap-1.5">
+						<h2 data-ev-id="ev_86cc1e6004" className="w-fit border-b border-electric-blue/40 pb-1 font-heading text-[11px] font-semibold uppercase tracking-[0.12em] text-ink sm:text-[12px] sm:tracking-[0.14em] lg:text-[13px]">
 							Services
 						</h2>
 						{FOOTER_SERVICES.map((link) =>
@@ -47,8 +47,8 @@ export function Footer() {
 					</nav>
 
 					{/* Column 4: Products */}
-					<div data-ev-id="ev_cbbc85d085" className="flex flex-col gap-3">
-						<h2 data-ev-id="ev_d5c53b8e9b" className="font-heading text-[11px] font-medium uppercase tracking-[0.12em] text-deep-gray sm:text-[12px] sm:tracking-[0.14em] lg:text-[13px]">
+					<div data-ev-id="ev_cbbc85d085" className="flex flex-col gap-1.5">
+						<h2 data-ev-id="ev_d5c53b8e9b" className="w-fit border-b border-electric-blue/40 pb-1 font-heading text-[11px] font-semibold uppercase tracking-[0.12em] text-ink sm:text-[12px] sm:tracking-[0.14em] lg:text-[13px]">
 							Products
 						</h2>
 						{FOOTER_PRODUCTS.map((link) =>
