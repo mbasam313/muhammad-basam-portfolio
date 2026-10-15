@@ -10,13 +10,6 @@ interface ProtectedImageProps {
   decoding?: 'async' | 'sync' | 'auto';
 }
 
-/**
- * Protected Image Component
- * - Disables right-click context menu
- * - Prevents drag and drop
- * - Adds invisible overlay to block direct interaction
- * - Disables image selection
- */
 export function ProtectedImage({
   src,
   alt,
@@ -37,56 +30,46 @@ export function ProtectedImage({
       return false;
     };
 
-    // Prevent context menu (right-click)
     container.addEventListener('contextmenu', preventActions);
-    // Prevent drag start
     container.addEventListener('dragstart', preventActions);
-    // Prevent selection
-    container.addEventListener('selectstart', preventActions);
 
     return () => {
       container.removeEventListener('contextmenu', preventActions);
       container.removeEventListener('dragstart', preventActions);
-      container.removeEventListener('selectstart', preventActions);
     };
   }, []);
 
   return (
-    <div data-ev-id="ev_2e867c64a6"
-    ref={containerRef}
-    className="protected-media relative inline-block"
-
-			<img data-ev-id="ev_23d2b63a38"
-      src={src}
-      alt={alt}
-      className={className}
-      width={width}
-      height={height}
-      loading={loading}
-      decoding={decoding}
-      draggable={false}
-      onContextMenu={(e) => e.preventDefault()}
-      onDragStart={(e) => e.preventDefault()}
-      style={{
-        pointerEvents: 'none',
-        WebkitTouchCallout: 'none'
-      }} />
-
-			{/* Invisible overlay to block direct image interaction */}
-			<div data-ev-id="ev_88079d6533"
-      aria-hidden="true"
-      className="absolute inset-0 z-10"
-      style={{ background: 'transparent' }}
-      onContextMenu={(e) => e.preventDefault()} />
-
-		</div>);
-
+    <div
+      ref={containerRef}
+      className="protected-media relative inline-block"
+    >
+      <img
+        src={src}
+        alt={alt}
+        className={className}
+        width={width}
+        height={height}
+        loading={loading}
+        decoding={decoding}
+        draggable={false}
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
+        style={{
+          pointerEvents: 'none',
+          WebkitTouchCallout: 'none'
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-10"
+        style={{ background: 'transparent' }}
+        onContextMenu={(e) => e.preventDefault()}
+      />
+    </div>
+  );
 }
 
-/**
- * Protected Background Image Component
- * Uses CSS background-image which is harder to download
- */
 interface ProtectedBgImageProps {
   src: string;
   alt: string;
@@ -96,17 +79,17 @@ interface ProtectedBgImageProps {
 
 export function ProtectedBgImage({ src, alt, className = '', children }: ProtectedBgImageProps) {
   return (
-    <div data-ev-id="ev_0597bbf557"
-    role="img"
-    aria-label={alt}
-    className={`protected-media ${className}`}
-    style={{
-      backgroundImage: `url(${src})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
-    }}>
-
-			{children}
-		</div>);
-
+    <div
+      role="img"
+      aria-label={alt}
+      className={`protected-media ${className}`}
+      style={{
+        backgroundImage: `url(${src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
+      {children}
+    </div>
+  );
 }
