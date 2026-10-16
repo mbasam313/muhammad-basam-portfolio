@@ -11,12 +11,11 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Seo } from '@/components/Seo';
 import { Container, Section, SectionHeading } from '@/components/ui/Section';
-import { ButtonLink, ArrowLink } from '@/components/ui/Button';
+import { ArrowLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
-import { ProtectedImage } from '@/components/ui/ProtectedImage';
+import { PageHero } from '@/components/layout/PageHero';
 import { FinalCta } from '@/components/home/FinalCta';
 import { PROFILE } from '@/data/site';
-import portrait from '@/assets/uploads/muhammad-basam-portrait.png';
 
 interface Specialization {
   icon: typeof Globe;
@@ -167,22 +166,22 @@ const PRODUCTS: Product[] = [
     name: 'VisualWinner',
     description:
       'A platform for live A/B design voting. Upload two designs, share a voting campaign, and let the audience decide which performs better.',
-    url: 'https://visualwinner.com',
+    url: 'https://visualwinner.vercel.app/',
     features: ['YouTube thumbnails', 'Ad creatives', 'Logos', 'Podcast covers', 'Social media designs'],
   },
   {
     name: 'Prompt Enhancer',
     description:
       'A web app that turns rough AI prompts into detailed, structured prompts for tools like ChatGPT, Claude, and Grok.',
-    url: 'https://promptenhancer.com',
+    url: 'https://www.promptsenhancer.site/',
     features: ['Prompt enhancement', 'Documentation', 'Blog system', 'Admin system'],
   },
   {
-    name: 'Workora',
+    name: 'Savvy Downloader',
     description:
-      'An HR and payroll SaaS concept for managing employees, attendance, leave, payroll, and performance digitally.',
-    url: 'https://workora.com',
-    features: ['Employee management', 'Attendance & leave', 'Payroll automation', 'Payslips'],
+      'A simple, focused downloader experience designed to make saving online content quick and straightforward.',
+    url: 'https://savvy-downloader.vercel.app/',
+    features: ['Simple workflow', 'Fast downloads', 'Clean interface', 'Easy to use'],
   },
 ];
 
@@ -236,49 +235,12 @@ const SKILL_GROUPS = [
 
 function AboutHero() {
   return (
-    <Section tone="paper" className="!py-16 sm:!py-20 lg:!py-24 xl:!py-28">
-      <Container>
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
-          <div className="flex flex-col gap-5 text-center lg:text-left">
-            <Reveal>
-              <span className="inline-block rounded-[8px] bg-[#0c78e4] px-3 py-1.5 font-heading text-[10px] font-semibold uppercase text-white sm:px-4 sm:py-2 sm:text-[11px] lg:px-5 lg:py-2.5 lg:text-[12px]">
-                About Me
-              </span>
-            </Reveal>
-            <Reveal delay={60}>
-              <h1 className="max-w-[20ch] font-display text-[28px] font-bold leading-[1.1] tracking-[-0.02em] text-ink text-balance sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px]">
-                Designer, developer, and marketer — all in one.
-              </h1>
-            </Reveal>
-            <Reveal delay={120}>
-              <p className="mx-auto max-w-[54ch] font-sans text-[15px] leading-[1.6] tracking-[-0.011em] text-mid-gray text-pretty sm:text-[16px] lg:text-[17px] lg:mx-0">
-                I'm {PROFILE.name}, a {PROFILE.role} based in {PROFILE.location}. With 4+ years of
-                practical experience, I work across website design, graphic design, and digital
-                marketing — combining skills that most people treat as separate.
-              </p>
-            </Reveal>
-            <Reveal delay={180}>
-              <div className="flex flex-row flex-wrap items-center justify-center gap-3 lg:justify-start">
-                <ButtonLink to="/contact">Let's Work Together</ButtonLink>
-                <ButtonLink to="/portfolio" variant="outline">
-                  View My Work
-                </ButtonLink>
-              </div>
-            </Reveal>
-          </div>
-          <Reveal delay={120} className="flex items-end justify-center pt-0 lg:justify-end lg:pt-12">
-            <ProtectedImage
-              src={portrait}
-              alt={`${PROFILE.name}, website designer and digital marketing professional`}
-              width={400}
-              height={400}
-              loading="eager"
-              className="h-[240px] w-auto object-contain sm:h-[300px] lg:h-[360px] xl:h-[400px]"
-            />
-          </Reveal>
-        </div>
-      </Container>
-    </Section>
+    <PageHero
+      eyebrow="About Me"
+      title="Designer, developer, and marketer — all in one."
+      description={`I'm ${PROFILE.name}, a ${PROFILE.role} based in ${PROFILE.location}. With 4+ years of practical experience, I work across website design, graphic design, and digital marketing — combining skills that most people treat as separate.`}
+      showPortraitOnMobile
+    />
   );
 }
 

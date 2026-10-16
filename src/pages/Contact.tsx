@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Seo } from '@/components/Seo';
 import { Container, Section, SectionHeading } from '@/components/ui/Section';
+import { PageHero } from '@/components/layout/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { FinalCta } from '@/components/home/FinalCta';
 import { CONTACT_INFO, SOCIAL_LINKS } from '@/data/site';
@@ -62,28 +63,13 @@ export default function Contact() {
       </a>
       <Header />
       <main id="main" className="flex-1">
-        <Section tone="paper" className="!py-16 sm:!py-20 lg:!py-24">
-          <Container>
-            <Reveal>
-              <span className="inline-block rounded-[8px] bg-[#0c78e4] px-3 py-1.5 font-heading text-[10px] font-semibold uppercase text-white sm:px-4 sm:py-2 sm:text-[11px] lg:px-5 lg:py-2.5 lg:text-[12px]">
-                Contact
-              </span>
-            </Reveal>
-            <Reveal delay={60}>
-              <h1 className="mt-5 max-w-[20ch] font-display text-[28px] font-bold leading-[1.1] tracking-[-0.02em] text-ink text-balance sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px]">
-                Let's work together.
-              </h1>
-            </Reveal>
-            <Reveal delay={120}>
-              <p className="mt-4 max-w-[54ch] font-sans text-[15px] leading-[1.6] tracking-[-0.011em] text-mid-gray text-pretty sm:text-[16px] lg:text-[17px]">
-                Have a project in mind? Fill out the form below and you'll be redirected to WhatsApp with
-                your message ready to send. Or reach out directly using the contact details.
-              </p>
-            </Reveal>
-          </Container>
-        </Section>
+        <PageHero
+          eyebrow="Contact"
+          title="Let's work together."
+          description="Have a project in mind? Fill out the form below and you'll be redirected to WhatsApp with your message ready to send. Or reach out directly using the contact details."
+        />
 
-        <Section tone="canvas" labelledBy="contact-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="contact-heading">
           <Container>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
               {/* Contact Info */}

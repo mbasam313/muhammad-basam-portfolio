@@ -7,6 +7,7 @@
  */
 import { Routes, Route } from 'react-router';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { BackToTop } from '@/components/BackToTop';
 import Index from '@/pages/Index';
 import About from '@/pages/About';
 import Services from '@/pages/Services';
@@ -17,14 +18,17 @@ import Ecommerce from '@/pages/services/Ecommerce';
 import LandingPages from '@/pages/services/LandingPages';
 import Pricing from '@/pages/Pricing';
 import Contact from '@/pages/Contact';
+import Portfolio from '@/pages/Portfolio';
 
 export default function App() {
 	return (
 		<>
 			<ScrollToTop />
+				<BackToTop />
 			<Routes>
 				<Route path="/" element={<Index />} />
 				<Route path="/about" element={<About />} />
+				<Route path="/portfolio" element={<Portfolio />} />
 				<Route path="/services" element={<Services />} />
 				<Route path="/services/website-design" element={<WebsiteDesign />} />
 				<Route path="/services/graphic-design" element={<GraphicDesign />} />

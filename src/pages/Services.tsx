@@ -3,8 +3,9 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Seo } from '@/components/Seo';
 import { Container, Section, SectionHeading } from '@/components/ui/Section';
-import { ButtonLink, ArrowLink } from '@/components/ui/Button';
+import { ArrowLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
+import { PageHero } from '@/components/layout/PageHero';
 import { FinalCta } from '@/components/home/FinalCta';
 import { SERVICES } from '@/data/site';
 
@@ -41,28 +42,13 @@ export default function Services() {
       </a>
       <Header />
       <main id="main" className="flex-1">
-        <Section tone="paper" className="!py-16 sm:!py-20 lg:!py-24">
-          <Container>
-            <Reveal>
-              <span className="inline-block rounded-[8px] bg-[#0c78e4] px-3 py-1.5 font-heading text-[10px] font-semibold uppercase text-white sm:px-4 sm:py-2 sm:text-[11px] lg:px-5 lg:py-2.5 lg:text-[12px]">
-                Services
-              </span>
-            </Reveal>
-            <Reveal delay={60}>
-              <h1 className="mt-5 max-w-[20ch] font-display text-[28px] font-bold leading-[1.1] tracking-[-0.02em] text-ink text-balance sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px]">
-                Everything you need to look better and work better online.
-              </h1>
-            </Reveal>
-            <Reveal delay={120}>
-              <p className="mt-4 max-w-[54ch] font-sans text-[15px] leading-[1.6] tracking-[-0.011em] text-mid-gray text-pretty sm:text-[16px] lg:text-[17px]">
-                Five focused services that cover the full digital journey — from the website itself
-                to the visuals that fill it and the campaigns that bring people to it.
-              </p>
-            </Reveal>
-          </Container>
-        </Section>
+        <PageHero
+          eyebrow="Services"
+          title="Everything you need to look better and work better online."
+          description="Five focused services that cover the full digital journey — from the website itself to the visuals that fill it and the campaigns that bring people to it."
+        />
 
-        <Section tone="canvas" labelledBy="services-grid-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="services-grid-heading">
           <Container>
             <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {SERVICES.map((service, index) => (

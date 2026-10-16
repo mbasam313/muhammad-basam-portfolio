@@ -3,6 +3,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Seo } from '@/components/Seo';
 import { Container, Section, SectionHeading } from '@/components/ui/Section';
+import { PageHero } from '@/components/layout/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { FinalCta } from '@/components/home/FinalCta';
 import { PRICING_PLANS, type PricingPlan } from '@/data/site';
@@ -149,28 +150,13 @@ export default function Pricing() {
       </a>
       <Header />
       <main id="main" className="flex-1">
-        <Section tone="paper" className="!py-16 sm:!py-20 lg:!py-24">
-          <Container>
-            <Reveal>
-              <span className="inline-block rounded-[8px] bg-[#0c78e4] px-3 py-1.5 font-heading text-[10px] font-semibold uppercase text-white sm:px-4 sm:py-2 sm:text-[11px] lg:px-5 lg:py-2.5 lg:text-[12px]">
-                Pricing
-              </span>
-            </Reveal>
-            <Reveal delay={60}>
-              <h1 className="mt-5 max-w-[20ch] font-display text-[28px] font-bold leading-[1.1] tracking-[-0.02em] text-ink text-balance sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px]">
-                Clear pricing for every service.
-              </h1>
-            </Reveal>
-            <Reveal delay={120}>
-              <p className="mt-4 max-w-[54ch] font-sans text-[15px] leading-[1.6] tracking-[-0.011em] text-mid-gray text-pretty sm:text-[16px] lg:text-[17px]">
-                Per-project pricing for websites, graphic design, landing pages and WooCommerce stores.
-                Monthly plans for Meta Ads and social media management. Select any plan to discuss on WhatsApp.
-              </p>
-            </Reveal>
-          </Container>
-        </Section>
+        <PageHero
+          eyebrow="Pricing"
+          title="Clear pricing for every service."
+          description="Per-project pricing for websites, graphic design, landing pages and WooCommerce stores. Monthly plans for Meta Ads and social media management. Select any plan to discuss on WhatsApp."
+        />
 
-        <Section tone="canvas" labelledBy="website-pricing-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="website-pricing-heading">
           <Container>
             <PricingGroup
               title="WordPress Website Design"
@@ -180,7 +166,7 @@ export default function Pricing() {
           </Container>
         </Section>
 
-        <Section tone="canvas" labelledBy="graphic-pricing-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="graphic-pricing-heading">
           <Container>
             <PricingGroup
               title="Graphic Design"
@@ -190,7 +176,7 @@ export default function Pricing() {
           </Container>
         </Section>
 
-        <Section tone="canvas" labelledBy="ads-pricing-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="ads-pricing-heading">
           <Container>
             <PricingGroup
               title="Meta Ads Management"
@@ -200,7 +186,7 @@ export default function Pricing() {
           </Container>
         </Section>
 
-        <Section tone="canvas" labelledBy="smm-pricing-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="smm-pricing-heading">
           <Container>
             <PricingGroup
               title="Social Media Management"
@@ -210,7 +196,7 @@ export default function Pricing() {
           </Container>
         </Section>
 
-        <Section tone="canvas" labelledBy="landing-pricing-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="landing-pricing-heading">
           <Container>
             <PricingGroup
               title="Landing Page Design"
@@ -220,7 +206,7 @@ export default function Pricing() {
           </Container>
         </Section>
 
-        <Section tone="canvas" labelledBy="woo-pricing-heading" className="!pt-0">
+        <Section tone="canvas" labelledBy="woo-pricing-heading">
           <Container>
             <PricingGroup
               title="E-commerce & WooCommerce"

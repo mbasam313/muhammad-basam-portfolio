@@ -5,7 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Seo } from '@/components/Seo';
 import { Container, Section, SectionHeading } from '@/components/ui/Section';
-import { ButtonLink } from '@/components/ui/Button';
+import { PageHero } from '@/components/layout/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { FinalCta } from '@/components/home/FinalCta';
 import { Process } from '@/components/home/Process';
@@ -84,36 +84,11 @@ export function ServiceDetail({ serviceId, children }: ServiceDetailProps) {
       </a>
       <Header />
       <main id="main" className="flex-1">
-        {/* Hero */}
-        <Section tone="paper" className="!py-16 sm:!py-20 lg:!py-24">
-          <Container>
-            <div className="flex flex-col gap-5">
-              <Reveal>
-                <span className="inline-block rounded-[8px] bg-[#0c78e4] px-3 py-1.5 font-heading text-[10px] font-semibold uppercase text-white sm:px-4 sm:py-2 sm:text-[11px] lg:px-5 lg:py-2.5 lg:text-[12px]">
-                  {service.eyebrow}
-                </span>
-              </Reveal>
-              <Reveal delay={60}>
-                <h1 className="max-w-[20ch] font-display text-[28px] font-bold leading-[1.1] tracking-[-0.02em] text-ink text-balance sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px]">
-                  {service.title}
-                </h1>
-              </Reveal>
-              <Reveal delay={120}>
-                <p className="max-w-[56ch] font-sans text-[15px] leading-[1.7] tracking-[-0.011em] text-mid-gray text-pretty sm:text-[16px] lg:text-[17px]">
-                  {service.intro}
-                </p>
-              </Reveal>
-              <Reveal delay={180}>
-                <div className="flex flex-row flex-wrap items-center gap-3 pt-2">
-                  <ButtonLink to="/contact">Let's Work Together</ButtonLink>
-                  <ButtonLink to="/portfolio" variant="outline">
-                    View My Work
-                  </ButtonLink>
-                </div>
-              </Reveal>
-            </div>
-          </Container>
-        </Section>
+        <PageHero
+          eyebrow={service.eyebrow}
+          title={service.title}
+          description={service.intro}
+        />
 
         {/* Description */}
         <Section tone="canvas" labelledBy="description-heading">
