@@ -688,9 +688,9 @@ export const FOOTER_SERVICES: NavLink[] = [
 ];
 
 export const FOOTER_PRODUCTS: NavLink[] = [
-	{ label: 'VisualWinner', href: 'https://visualwinner.com' },
-	{ label: 'Prompt Enhancer', href: 'https://promptenhancer.com' },
-	{ label: 'Workora', href: 'https://workora.com' },
+	{ label: 'VisualWinner', href: 'https://visualwinner.vercel.app/' },
+	{ label: 'Prompts Enhancer', href: 'https://www.promptsenhancer.site/' },
+	{ label: 'Savvy Downloader', href: 'https://savvy-downloader.vercel.app/' },
 ];
 
 export const FOOTER_LEGAL: NavLink[] = [

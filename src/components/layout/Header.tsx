@@ -20,9 +20,9 @@ const NAV_LINKS: NavLink[] = [
   label: 'Products',
   href: '#',
   children: [
-  { label: 'VisualWinner', href: 'https://visualwinner.com', external: true },
-  { label: 'Prompt Enhancer', href: 'https://promptenhancer.com', external: true },
-  { label: 'Workora', href: 'https://workora.com', external: true }]
+  { label: 'VisualWinner', href: 'https://visualwinner.vercel.app/', external: true },
+  { label: 'Prompts Enhancer', href: 'https://www.promptsenhancer.site/', external: true },
+  { label: 'Savvy Downloader', href: 'https://savvy-downloader.vercel.app/', external: true }]
 
 },
 { label: 'Pricing', href: '/pricing' },

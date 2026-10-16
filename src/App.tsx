@@ -19,6 +19,7 @@ import LandingPages from '@/pages/services/LandingPages';
 import Pricing from '@/pages/Pricing';
 import Contact from '@/pages/Contact';
 import Portfolio from '@/pages/Portfolio';
+import NotFound from '@/pages/NotFound';
 
 export default function App() {
 	return (
@@ -37,6 +38,7 @@ export default function App() {
 				<Route path="/services/landing-pages" element={<LandingPages />} />
 				<Route path="/pricing" element={<Pricing />} />
 				<Route path="/contact" element={<Contact />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</>
 	);

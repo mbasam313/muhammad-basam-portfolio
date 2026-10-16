@@ -30,11 +30,5 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": false
   },
-  "include": ["src"],
-  // `_ExamplePage.tsx` is a documentation file shown to the AI agent as a canonical
-  // "how to write a page" reference. It deliberately queries an `items` table that
-  // only exists once a migration runs, so under TypeScript's empty `Database` type
-  // it would fail `tsc`. Excluding it keeps `npm run build` green for AI-scaffolded
-  // projects while still leaving the file on disk as a reference.
-  "exclude": ["src/pages/_ExamplePage.tsx"]
+  "include": ["src"]
 }
