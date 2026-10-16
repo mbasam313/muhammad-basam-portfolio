@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router';
 
 function getAnchorTarget(hash: string): HTMLElement | null {
@@ -15,34 +15,15 @@ function getAnchorTarget(hash: string): HTMLElement | null {
   return document.getElementById(id) ?? document.getElementsByName(id)[0] ?? null;
 }
 
-function resetDocumentScroll(): void {
+function setDocumentScroll(left: number, top: number): void {
   const scrollingElement = document.scrollingElement ?? document.documentElement;
-  scrollingElement.scrollLeft = 0;
-  scrollingElement.scrollTop = 0;
-  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  scrollingElement.scrollLeft = left;
+  scrollingElement.scrollTop = top;
+  window.scrollTo({ top, left, behavior: 'auto' });
 }
 
 export function ScrollToTop() {
   const { pathname, hash } = useLocation();
-
-  useEffect(() => {
-    const reconcileInitialPosition = () => {
-      const anchor = getAnchorTarget(window.location.hash);
-      if (anchor) {
-        anchor.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'auto' });
-        return;
-      }
-
-      resetDocumentScroll();
-    };
-
-    window.addEventListener('pageshow', reconcileInitialPosition);
-    window.addEventListener('load', reconcileInitialPosition);
-    return () => {
-      window.removeEventListener('pageshow', reconcileInitialPosition);
-      window.removeEventListener('load', reconcileInitialPosition);
-    };
-  }, []);
 
   useLayoutEffect(() => {
     const anchor = getAnchorTarget(hash);
@@ -51,7 +32,7 @@ export function ScrollToTop() {
       return;
     }
 
-    resetDocumentScroll();
+    setDocumentScroll(0, 0);
   }, [pathname, hash]);
 
   return null;

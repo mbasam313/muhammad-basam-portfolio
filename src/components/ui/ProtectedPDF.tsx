@@ -42,6 +42,8 @@ export function ProtectedPDF({ src, title, className = '', maxHeight = '40vh' }:
 
 			<iframe data-ev-id="ev_83c926dbb6"
         src={`${src}#toolbar=0&navpanes=0&scrollbar=0`}
+        loading="lazy"
+        tabIndex={-1}
         title={title}
         className="h-full w-full border-0"
         style={{ pointerEvents: 'auto' }} />
