@@ -3,7 +3,7 @@ import { Container } from '@/components/ui/Section';
 import { ButtonLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
 import { ProtectedImage } from '@/components/ui/ProtectedImage';
-import portrait from '@/assets/uploads/muhammad-basam-portrait.png';
+import portrait from '@/assets/images/portrait.png';
 
 interface PageHeroProps {
   eyebrow: string;
