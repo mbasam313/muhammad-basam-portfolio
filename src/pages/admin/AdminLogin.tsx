@@ -1,13 +1,21 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router';
-import { Lock, Mail } from 'lucide-react';
+import { Lock, User } from 'lucide-react';
 import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { Seo } from '@/components/Seo';
+
+const ADMIN_EMAIL_DOMAIN = 'mbasamportfolio.site';
+
+function toAdminEmail(identifier: string): string {
+  const trimmed = identifier.trim();
+  if (trimmed.includes('@')) return trimmed;
+  return `${trimmed}@${ADMIN_EMAIL_DOMAIN}`;
+}
 
 export default function AdminLogin() {
   const { signIn } = useAdminAuth();
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -16,7 +24,7 @@ export default function AdminLogin() {
     e.preventDefault();
     setError(null);
     setBusy(true);
-    const result = await signIn(email, password);
+    const result = await signIn(toAdminEmail(username), password);
     setBusy(false);
     if (result.ok) {
       navigate('/admin-dash', { replace: true });
@@ -43,17 +51,17 @@ export default function AdminLogin() {
         </div>
         <form onSubmit={onSubmit} className="flex flex-col gap-4">
           <label className="flex flex-col gap-1.5">
-            <span className="text-sm font-medium text-[#1d1d1f]">Email</span>
+            <span className="text-sm font-medium text-[#1d1d1f]">Username</span>
             <div className="flex items-center gap-2 rounded-xl border border-[#d2d2d7] px-3 py-2.5 focus-within:border-[#0071e3]">
-              <Mail className="h-4 w-4 text-[#6e6e73]" />
+              <User className="h-4 w-4 text-[#6e6e73]" />
               <input
-                type="email"
+                type="text"
                 required
                 autoComplete="username"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="w-full bg-transparent text-[15px] text-[#1d1d1f] outline-none"
-                placeholder="you@example.com"
+                placeholder="mbasam313"
               />
             </div>
           </label>
