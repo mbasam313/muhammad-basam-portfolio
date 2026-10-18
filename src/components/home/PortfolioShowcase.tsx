@@ -4,14 +4,8 @@ import { ArrowLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
 import { ProtectedImage } from '@/components/ui/ProtectedImage';
 import { ProtectedPDFCard } from '@/components/ui/ProtectedPDF';
-import {
-  BUSINESS_WEBSITES,
-  ECOMMERCE_WEBSITES,
-  LOGO_PROJECTS,
-  BRANDING_PROJECTS,
-  AD_CREATIVES,
-  SM_POSTS } from
-'@/data/site';
+import { usePortfolioProjects } from '@/hooks/usePublicContent';
+import { LOGO_PROJECTS, BRANDING_PROJECTS, AD_CREATIVES, SM_POSTS } from '@/data/site';
 
 function SectionTitle({ children, accent }: {children: React.ReactNode;accent?: string;}) {
   return (
@@ -65,6 +59,7 @@ function CreativeCard({ image }: {image: string;}) {
 }
 
 export function PortfolioShowcase() {
+  const { data: projects } = usePortfolioProjects();
   return (
     <Section id="work" tone="paper" labelledBy="work-heading">
 			<Container>
@@ -85,7 +80,7 @@ export function PortfolioShowcase() {
 				<Reveal className="mt-12 sm:mt-14 lg:mt-16">
 					<SectionTitle>Business & Company</SectionTitle>
 					<div data-ev-id="ev_f158b670ef" className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-						{BUSINESS_WEBSITES.map((project) =>
+						{(projects.business ?? []).map((project) =>
             <WebProjectCard key={project.id} {...project} />
             )}
 					</div>
@@ -95,7 +90,7 @@ export function PortfolioShowcase() {
 				<Reveal className="mt-14 sm:mt-16 lg:mt-20">
 					<SectionTitle>E-Commerce</SectionTitle>
 					<div data-ev-id="ev_004dcc9f8c" className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-						{ECOMMERCE_WEBSITES.map((project) =>
+						{(projects.ecommerce ?? []).map((project) =>
             <WebProjectCard key={project.id} {...project} />
             )}
 					</div>

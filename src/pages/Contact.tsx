@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Send, Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Facebook, Instagram, Linkedin, MessageCircle, CheckCircle2, AlertCircle } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Seo } from '@/components/Seo';
@@ -9,6 +9,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { FinalCta } from '@/components/home/FinalCta';
 import { CONTACT_INFO, SOCIAL_LINKS } from '@/data/site';
 import { buildWhatsAppUrl, buildContactMessage } from '@/utils/whatsapp';
+import { supabase } from '@/integrations/supabase/client';
 
 const SOCIAL_ICONS: Record<string, typeof Mail> = {
   facebook: Facebook,
@@ -22,9 +23,30 @@ export default function Contact() {
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [website, setWebsite] = useState('');
+  const [submitState, setSubmitState] = useState<'idle' | 'busy' | 'ok' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitState('busy');
+    let stored = false;
+    if (supabase) {
+      const { data } = await supabase.rpc('submit_contact_message', {
+        p_name: name,
+        p_email: email,
+        p_subject: subject,
+        p_message: message,
+        p_website: website,
+      });
+      stored = data === true;
+    }
+    setSubmitState(stored ? 'ok' : 'error');
+    if (stored) {
+      setName('');
+      setEmail('');
+      setSubject('');
+      setMessage('');
+    }
     const fullMessage = buildContactMessage(name, email, subject, message);
     window.open(buildWhatsAppUrl(fullMessage), '_blank');
   };
@@ -219,15 +241,39 @@ export default function Contact() {
                       className="resize-none rounded-[10px] border border-hairline bg-canvas px-4 py-3 font-sans text-[15px] text-ink placeholder:text-mid-gray/60 focus:border-electric-blue focus:outline-none focus:ring-2 focus:ring-electric-blue/20 sm:text-[16px]"
                     />
                   </div>
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input
+                      id="website"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={website}
+                      onChange={(e) => setWebsite(e.target.value)}
+                    />
+                  </div>
+                  {submitState === 'ok' && (
+                    <p className="flex items-center gap-2 rounded-[10px] bg-[#e8f5e9] px-4 py-3 font-sans text-[14px] text-[#2e7d32]">
+                      <CheckCircle2 size={16} aria-hidden="true" />
+                      Message received — I'll get back to you soon.
+                    </p>
+                  )}
+                  {submitState === 'error' && (
+                    <p className="flex items-center gap-2 rounded-[10px] bg-[#fdecec] px-4 py-3 font-sans text-[14px] text-[#c0392b]">
+                      <AlertCircle size={16} aria-hidden="true" />
+                      Something went wrong sending your message. Please try WhatsApp instead.
+                    </p>
+                  )}
                   <button
                     type="submit"
-                    className="group inline-flex items-center justify-center gap-2 rounded-pill bg-electric-blue px-6 py-[11px] font-heading text-[16px] font-medium text-white transition-colors duration-200 hover:bg-[#0062c4] lg:text-[17px]"
+                    disabled={submitState === 'busy'}
+                    className="group inline-flex items-center justify-center gap-2 rounded-pill bg-electric-blue px-6 py-[11px] font-heading text-[16px] font-medium text-white transition-colors duration-200 hover:bg-[#0062c4] disabled:opacity-60 lg:text-[17px]"
                   >
-                    Send via WhatsApp
+                    {submitState === 'busy' ? 'Sending…' : 'Send Message'}
                     <Send size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
                   </button>
                   <p className="font-sans text-[13px] leading-[1.5] tracking-[-0.011em] text-mid-gray sm:text-[14px]">
-                    Clicking send will open WhatsApp with your message pre-filled and ready to send.
+                    Your message is delivered directly and a WhatsApp window also opens with it pre-filled as a backup.
                   </p>
                 </form>
               </Reveal>

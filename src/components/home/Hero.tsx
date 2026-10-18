@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/Section';
+import { useSiteSettings } from '@/hooks/usePublicContent';
 import { ButtonLink } from '@/components/ui/Button';
 import { ProtectedImage, ProtectedBgImage } from '@/components/ui/ProtectedImage';
 import heroBg from '@/assets/uploads/hero-bg-final.jpg';
@@ -61,6 +62,7 @@ function IconColumn({ icons, side }: {icons: FloatingIcon[];side: 'left' | 'righ
 }
 
 export function Hero() {
+  const { data: settings } = useSiteSettings();
   return (
     <ProtectedBgImage
       src={heroBg}
@@ -74,7 +76,7 @@ export function Hero() {
 						{/* Label Badge - Top */}
 						<div data-ev-id="ev_bed5f7575e" className="reveal reveal-in">
 							<span data-ev-id="ev_c62ed20320" className="inline-block rounded-[8px] bg-[#0c78e4] px-3 py-1.5 font-heading text-[10px] font-semibold uppercase text-white sm:px-4 sm:py-2 sm:text-[11px] lg:px-5 lg:py-2.5 lg:text-[12px]">
-								Website Designer • Graphic Designer • Digital Marketing Expert
+								{settings?.tagline ?? 'Website Designer • Graphic Designer • Digital Marketing Expert'}
 							</span>
 						</div>
 

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
 interface SeoProps {
   title: string;
@@ -69,6 +70,30 @@ export function Seo({
       document.head.querySelector('meta[name="keywords"]')?.remove();
     }
     setMeta('name', 'robots', robots);
+
+    (async () => {
+      if (!supabase) return;
+      const slug = path.replace(/^\//, '').split('/')[0] || 'home';
+      const { data } = await supabase
+        .from('pages')
+        .select('seo')
+        .eq('slug', slug)
+        .eq('published', true)
+        .maybeSingle();
+      const seo = (data?.seo ?? {}) as Record<string, unknown>;
+      if (seo.title) {
+        const dbTitle = `${String(seo.title)} | ${SITE_NAME}`;
+        document.title = dbTitle;
+        setMeta('property', 'og:title', dbTitle);
+        setMeta('name', 'twitter:title', dbTitle);
+      }
+      if (seo.description) {
+        const desc = String(seo.description);
+        setMeta('name', 'description', desc);
+        setMeta('property', 'og:description', desc);
+        setMeta('name', 'twitter:description', desc);
+      }
+    })();
 
     setLink('canonical', canonicalUrl);
 

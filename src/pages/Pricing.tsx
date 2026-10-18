@@ -6,7 +6,8 @@ import { Container, Section, SectionHeading } from '@/components/ui/Section';
 import { PageHero } from '@/components/layout/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { FinalCta } from '@/components/home/FinalCta';
-import { PRICING_PLANS, type PricingPlan } from '@/data/site';
+import { usePricingPlans } from '@/hooks/usePublicContent';
+import type { PricingPlan } from '@/data/site';
 import { buildWhatsAppUrl, buildPricingMessage } from '@/utils/whatsapp';
 
 function PlanCard({ plan }: { plan: PricingPlan }) {
@@ -118,12 +119,13 @@ function PricingGroup({ title, description, plans }: { title: string; descriptio
 }
 
 export default function Pricing() {
-  const websitePlans = PRICING_PLANS.filter((p) => p.serviceName === 'WordPress Website Design');
-  const graphicPlans = PRICING_PLANS.filter((p) => p.serviceName === 'Graphic Design');
-  const adsPlans = PRICING_PLANS.filter((p) => p.serviceName === 'Meta Ads Management');
-  const smmPlans = PRICING_PLANS.filter((p) => p.serviceName === 'Social Media Management');
-  const landingPlans = PRICING_PLANS.filter((p) => p.serviceName === 'Landing Page Design');
-  const wooPlans = PRICING_PLANS.filter((p) => p.serviceName === 'E-commerce & WooCommerce');
+  const { data: plans } = usePricingPlans();
+  const websitePlans = plans.filter((p) => p.serviceName === 'WordPress Website Design');
+  const graphicPlans = plans.filter((p) => p.serviceName === 'Graphic Design');
+  const adsPlans = plans.filter((p) => p.serviceName === 'Meta Ads Management');
+  const smmPlans = plans.filter((p) => p.serviceName === 'Social Media Management');
+  const landingPlans = plans.filter((p) => p.serviceName === 'Landing Page Design');
+  const wooPlans = plans.filter((p) => p.serviceName === 'E-commerce & WooCommerce');
 
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-paper font-sans antialiased">

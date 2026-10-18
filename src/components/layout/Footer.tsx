@@ -2,11 +2,15 @@ import { Link } from 'react-router';
 import { Container } from '@/components/ui/Section';
 import { Logo } from '@/components/ui/Logo';
 import { NAV_LINKS, FOOTER_SERVICES, FOOTER_PRODUCTS, FOOTER_LEGAL, PROFILE } from '@/data/site';
+import { useSiteSettings } from '@/hooks/usePublicContent';
 
 const LINK_CLASS =
 'inline-flex min-h-[36px] items-center font-heading text-[13px] leading-[1.4] tracking-[-0.011em] text-mid-gray transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue rounded-sm sm:min-h-0 sm:text-[14px]';
 
 export function Footer() {
+  const { data: settings } = useSiteSettings();
+  const brandName = settings?.brandName ?? PROFILE.name;
+  const location = settings?.location ?? PROFILE.location;
   return (
     <footer data-ev-id="ev_8da7c14ec0" className="bg-canvas text-ink safe-area-bottom">
 			<Container>
@@ -18,7 +22,7 @@ export function Footer() {
 							{PROFILE.shortBio}
 						</p>
 						<p data-ev-id="ev_619f906f12" className="font-sans text-[13px] leading-[1.6] tracking-[-0.011em] text-mid-gray sm:text-[14px]">
-							{PROFILE.location}
+							{location}
 						</p>
 					</div>
 
@@ -68,7 +72,7 @@ export function Footer() {
 				{/* Bottom Bar */}
 				<div data-ev-id="ev_c050723dd0" className="flex flex-col gap-4 border-t border-hairline py-8 sm:flex-row sm:items-center sm:justify-between">
 					<p data-ev-id="ev_bb88e6c8b2" className="font-sans text-[12px] leading-[1.5] tracking-[-0.01em] text-mid-gray">
-						© {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
+						© {new Date().getFullYear()} {brandName}. All rights reserved.
 					</p>
 					<nav data-ev-id="ev_9f5916d5d2" aria-label="Legal" className="flex flex-row flex-wrap gap-6">
 						{FOOTER_LEGAL.map((link) =>

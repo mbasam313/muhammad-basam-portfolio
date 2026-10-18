@@ -7,9 +7,10 @@ import { ArrowLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
 import { PageHero } from '@/components/layout/PageHero';
 import { FinalCta } from '@/components/home/FinalCta';
-import { SERVICES } from '@/data/site';
+import { useServices } from '@/hooks/usePublicContent';
 
 export default function Services() {
+  const { data: services } = useServices();
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-paper font-sans antialiased">
       <Seo
@@ -26,7 +27,7 @@ export default function Services() {
             name: 'Muhammad Basam',
             jobTitle: 'Website Designer, Graphic Designer & Digital Marketing Professional',
           },
-          hasService: SERVICES.map((s) => ({
+          hasService: services.map((s) => ({
             '@type': 'Service',
             name: s.title,
             description: s.summary,
@@ -51,7 +52,7 @@ export default function Services() {
         <Section tone="canvas" labelledBy="services-grid-heading">
           <Container>
             <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {SERVICES.map((service, index) => (
+              {services.map((service, index) => (
                 <Reveal as="li" key={service.id} delay={index * 70}>
                   <article className="flex h-full flex-col gap-4 rounded-[14px] bg-paper p-5 ring-1 ring-hairline/60 transition-all duration-300 hover:ring-hairline hover:shadow-lg sm:p-6 lg:p-8">
                     <span className="font-heading text-[11px] font-medium uppercase tracking-[0.14em] text-electric-blue sm:text-[12px] lg:text-[13px]">
