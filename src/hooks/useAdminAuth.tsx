@@ -80,6 +80,7 @@ export function AdminAuthProvider({ children }: { children: ReactNode }) {
       await supabase.auth.signOut();
       return { ok: false, error: 'This account does not have admin access' };
     }
+    setState({ session: true, loading: false, isAdmin: true });
     return { ok: true };
   };
 
